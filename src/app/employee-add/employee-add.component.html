@@ -1,0 +1,96 @@
+<h3>Create Employee</h3>
+<div class="row">
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4" >
+    <div [hidden]="submitted" style="width: 400px;">
+      <form [formGroup]="employeesaveform" #saveEmployee (ngSubmit)="saveEmployee(saveEmployee)">
+        <div class="form-group">
+          <label for="name">Employee Id</label>
+          <input type="text" class="form-control"  formControlName="employee_id" data-toggle="tooltip" 
+             data-placement="right" title="Enter Employee Id" >
+          <div class="alert alert-danger" *ngIf = "(EmployeeId.touched) && (EmployeeId.invalid)" 
+            style="margin-top: 5px;">
+              <span *ngIf="EmployeeId.errors.required">Employee Id is Required</span>
+                <span *ngIf = "EmployeeId.errors.minlength"> 
+                    MinLength Error 
+                </span>                   
+            </div>
+      </div>
+          <div class="form-group">
+              <label for="name">Employee Name</label>
+              <input type="text" class="form-control"  formControlName="employee_name" data-toggle="tooltip" 
+                 data-placement="right" title="Enter Employee Name" >
+              <div class="alert alert-danger" *ngIf = "(EmployeeName.invalid)" 
+                style="margin-top: 5px;">
+                  <span *ngIf="EmployeeName.errors.required">Employee Name is Required</span>
+                    <span *ngIf = "EmployeeName.errors.minlength"> 
+                        MinLength Error 
+                    </span>                   
+                </div>
+          </div>
+  
+          <div class="form-group">
+              <label for="name">Employee Date Of Birth</label>
+              <input type="date" class="form-control" formControlName="employee_dob" 
+                data-toggle="tooltip" data-placement="right" title="Enter Employee Date Of Birth">
+                <div class="alert alert-danger" *ngIf = "(EmployeeDOB.invalid)" 
+                style="margin-top: 5px;">
+                  <span *ngIf="EmployeeDOB.errors.required">Employee DOB is Required</span>                   
+                </div>
+          </div>
+          <div class="form-group">
+            <label for="name">Employee Department</label>
+            <input type="text" class="form-control" formControlName="employee_department" 
+              data-toggle="tooltip" data-placement="right" title="Enter Employee Department">
+              <div class="alert alert-danger" *ngIf = "(EmployeeDepartment.invalid)" 
+              style="margin-top: 5px;">
+                <span *ngIf="EmployeeDepartment.errors.required">Employee Department is Required</span>                   
+              </div>
+        </div>
+  
+          <div class="form-group">
+              <label for="techskilllist">Employee Technical Skill list</label>
+                <select class="form-control" formControlName="employee_techskilllist" data-toggle="tooltip" 
+                      data-placement="right" title="Select Skill Name">
+                    <option value="null">--Select Skill Name--</option>
+                  <option value="Java">Java</option>
+                  <option value="C++">C++</option>
+                  <option value="Pyhon">Python</option>
+                  <option value="C#">C#</option>
+                </select>
+                <input type="number" min="1" max="10" class="form-control" formControlName="employee_techskilllist_value" data-toggle="tooltip" 
+                      data-placement="right" title="Select Skill Competancy value">
+                    
+    
+          </div>
+          <div class="form-group">
+            <label for="nontechskilllist">Employee Non Technical Skill list</label>
+              <select class="form-control" formControlName="employee_nontechskilllist"  data-toggle="tooltip" 
+                    data-placement="right" title="Select Skill Name">
+                  <option value="null">--Select Skill Name--</option>
+                <option value="Health Care">Health Care</option>
+                <option value="BFS">BFS</option>
+                <option value="Retail">Retail</option>
+              </select>
+              <input type="number" min="1" max="10" class="form-control"  formControlName="employee_nontechskilllist_value" data-toggle="tooltip" 
+                      data-placement="right" title="Select Skill Competancy value">
+        </div>
+  
+          <button (click)="SaveEmployee()" type="submit" class="btn btn-success">Submit</button>
+      </form>
+  </div>
+  </div>
+  <div class="col-sm-4"></div>
+</div>
+<div class="row">
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4">
+      <div [hidden]="!submitted">
+         <h4>Employee Added SuccessFully!</h4>
+         <button (click)="addEmployeeForm()" class='btn btn-primary'>Add More Employee</button>
+      </div>      
+  </div>
+  <div class="col-sm-4"></div>
+</div>
+
+

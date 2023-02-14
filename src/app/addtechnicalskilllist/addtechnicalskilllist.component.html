@@ -1,0 +1,50 @@
+<h3>Add Technical Skill</h3>
+<div class="row">
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4" >
+    <div [hidden]="submitted" style="width: 400px;">
+      <form [formGroup]="employeesaveform" #saveEmployee (ngSubmit)="saveEmployee(saveEmployee)">
+        <div class="form-group">
+          <label for="name">Employee Id</label>
+          <input type="text" class="form-control"  formControlName="employee_id" data-toggle="tooltip" 
+             data-placement="right" title="Enter Employee Id" >
+          <div class="alert alert-danger" *ngIf = "(EmployeeId.touched) && (EmployeeId.invalid)" 
+            style="margin-top: 5px;">
+              <span *ngIf="EmployeeId.errors.required">Employee Id is Required</span>
+                <span *ngIf = "EmployeeId.errors.minlength"> 
+                    MinLength Error 
+                </span>                   
+            </div>
+      </div>
+      <div class="form-group">
+        <label for="techskilllist">Employee Technical Skill list</label>
+          <select class="form-control" formControlName="employee_techskilllist" data-toggle="tooltip" 
+                data-placement="right" title="Select Skill Name">
+              <option value="null">--Select Skill Name--</option>
+            <option value="Java">Java</option>
+            <option value="C++">C++</option>
+            <option value="Pyhon">Python</option>
+            <option value="C#">C#</option>
+          </select>
+          <input type="number" min="1" max="10" class="form-control" formControlName="employee_techskilllist_value" data-toggle="tooltip" 
+                data-placement="right" title="Select Skill Competancy value">
+                <br>
+                <br>
+                <button (click)="SaveEmployee()" type="submit" class="btn btn-success">Submit</button>
+    </div>
+  </form>
+</div>
+</div>
+<div class="col-sm-4"></div>
+</div>
+<div class="row">
+<div class="col-sm-4"></div>
+<div class="col-sm-4">
+    <div [hidden]="!submitted">
+      <br/><br/>
+       <h4>Technical Skill Added SuccessFully!</h4>
+      </div>      
+</div>
+<div class="col-sm-4"></div>
+</div>
+

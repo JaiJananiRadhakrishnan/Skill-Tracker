@@ -1,0 +1,81 @@
+<div class="panel panel-default">
+      <!--div  class="container-fluid" align="center">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <ul class="navbar-nav" align="center">
+          <br/>
+          <li class="nav-item" align="center">
+            <a routerLink="view-student" class="nav-link" class="btn btn-primary active" role="button" >View All Employee List</a>
+          </li>&nbsp;&nbsp;&nbsp;&nbsp;
+          <br/>
+          <li class="nav-item">
+            <a  routerLink="add-employee" class="nav-link" class="btn btn-primary active" role="button" >Add Employee</a>
+          </li>&nbsp;&nbsp;&nbsp;&nbsp;
+          <br/>
+          <li class="nav-item">
+            <a  routerLink="add-employee-techskilllist" class="nav-link" class="btn btn-primary active" role="button" >Add Technical Skill</a>
+          </li> &nbsp;&nbsp;&nbsp;&nbsp;
+          <br/>
+          <li class="nav-item">
+            <a  routerLink="delete-employee-techskilllist" class="nav-link" class="btn btn-primary active" role="button" >Delete Technical Skill</a>
+          </li>     &nbsp;&nbsp;&nbsp;&nbsp;
+          <br/>
+          <li class="nav-item">
+            <a  routerLink="add-employee-nontechskilllist" class="nav-link" class="btn btn-primary active" role="button" >Add Employee Non-Technical Skill</a>
+          </li>&nbsp;&nbsp;&nbsp;&nbsp;
+          <br/>
+          <li class="nav-item">
+            <a  routerLink="delete-employee-nontechskilllist" class="nav-link" class="btn btn-primary active" role="button" >Delete Employee Non-Technical Skill</a>
+          </li>  &nbsp;&nbsp;&nbsp;&nbsp;        
+          <br/>
+        </ul>
+      </nav>
+    </div-->  
+  <div class="panel-heading">
+      <h1 style="text-align: center">Employee List</h1><br>
+      <div class="row" [hidden]="!deleteMessage">
+           
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
+                        <div class="alert alert-info alert-dismissible">
+                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                              
+                        </div>
+                </div>
+                <div class="col-sm-4"></div>
+        </div>           
+    </div>
+  <div class="panel-body">
+      <table  class="table table-hover table-sm" datatable [dtOptions]="dtOptions"
+      [dtTrigger]="dtTrigger"  >
+          <thead class="thead-light">
+              <tr>
+                  <th>Employee Id</th>
+                  <th>Employee Name</th>
+                  <th>Employee DOB</th>
+                  <th>Employee Department</th>
+                  <th>Employee Tech Skill List</th>
+                  <th>Employee Non Tech Skill List</th>
+                  
+              </tr>
+          </thead>
+          <tbody>
+               <tr *ngFor="let employee of employeeList ">
+                  <td>{{employee.employeeId}}</td>
+                  <td>{{employee.employeeName}}</td>
+                  <td>{{employee.employeeDOB}}</td>
+                  <td>{{employee.employeeDepartment}}</td>
+                  <td>
+                    <div *ngFor="let technicalSkillList of employee.technicalSkillList">{{technicalSkillList.skillName}},{{technicalSkillList.competancyValue}}</div>
+                     </td>
+                  <td>
+                    <div *ngFor="let nonTechnicalSkillList of employee.nonTechnicalSkillList">
+                      {{nonTechnicalSkillList.skillName}},{{nonTechnicalSkillList.competancyValue}}</div>
+                  </td>
+                  
+                  
+                </tr> 
+          </tbody><br>
+      </table>
+  </div>
+</div> 
+

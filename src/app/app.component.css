@@ -1,0 +1,9 @@
+:host(li){padding:"100px";
+}
+body{
+    background-color: blue;
+}
+.container-fluid{
+    background-color: aliceblue;
+    margin: auto;
+}
